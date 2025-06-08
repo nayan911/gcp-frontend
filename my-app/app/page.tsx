@@ -1,14 +1,17 @@
 'use client'
 import { useState } from "react";
+import { getData } from "../service";
 
 const HOME = () => {
   const [data, setData] = useState(['']);
   const handleClick = async () => {
+    const res = await getData('/api/details');
+    console.log(res);
     setData(['data1', 'data2']);
   }
   return (
     <div>
-      Homne Page
+      Home Page
       <br />
       <button onClick={handleClick}>button</button>
       {data.map((item) => {
